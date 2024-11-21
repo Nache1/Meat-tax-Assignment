@@ -53,7 +53,8 @@ apollo_control <- list(
   modelName = "LatentClassModel",
   modelDescr = "Latent class logit model",
   indivID = "numeric_id_1", # Individual ID variable
-  outputDirectory= "output"
+  outputDirectory= "output", 
+  cores= 11
 )
 
 # Define apollo_beta with unique parameter names
