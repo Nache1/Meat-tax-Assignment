@@ -7,8 +7,8 @@ library(dplyr)
 library(tidyr)
 
 apollo_initialise()
-setwd("//storage.slu.se/Home$/nram0002/Desktop/Estimations")
-dat <- read.csv("//storage.slu.se/Home$/nram0002/Desktop/Estimations/data_cleaned_final_jan24.csv")
+
+dat <- read.csv("data_cleaned_final_jan24.csv")
 
 #Long to short format
 database<-dat %>% 
