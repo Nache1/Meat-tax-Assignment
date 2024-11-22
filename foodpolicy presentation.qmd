@@ -1,0 +1,46 @@
+---
+title: "Foodpolicy latent class presentation"
+format: revealjs
+editor: visual
+---
+
+
+## Results LC logit model for meat tax attributs
+
+| Attributs                           | Class 1 | class 2 | Class 3 |
+                                      | (  %)   | (  %)   |   (  %) |
+                                      | Coeff   |Coeff    |Coeff    |
+|-------------------------------------|---------|---------|---------|
+PRODUCTS TO BE TAXED (BASELINE ALL MEAT IS TAXED)
+|Exempt poultry|  -0.213| 0.304|  0.123|
+|Exempt organic meat|-0.069612|0.296153| 0.976904|
+
+USE OF REVENUE (BASELINE: ADD TO GENERAL GOVERNMENT BUDGET)
+|Improve sustainability|0.715874|0.737625|3.014223|
+|Improve animal welfare| 1.102692|-0.034837|3.014223|  
+|Reduce VAT on fruits and vegetables|1.048368|1.429807|2.346719|
+|Compensate lower income households |0.411507|0.239593|3.524841|
+EFFORTS BY OTHER COUNTRIES (BASELINE: IMPLEMENT REGARDLESS OF OTHERS)
+|Only implement in some other EU join |-0.151576| 0.754461|1.512128|
+|Only if all other EU join|-0.118615|1.126753|0.444155|
+|Average household costs|0.006023|-0.026884|-0.157312|
+
+CLASS MEMBERSHIP
+|Gender| 9.753812|9.405262|
+|Age: 40-59|1.780347|1.462012|
+|Age: >60|-22.224287| -22.521599|
+|Education: Vocational|-7.817583|-7.908519|
+|Education: Higher or University|-0.605419|-0.179001|
+|Income: 33k-60k Euros|-12.459841|-12.361802|
+|Income: >60k|11.648052|12.318889|
+|Income: Do not know/or prefer not to say|-5.318698| -4.809752|
+|Meat consumption|-11.906960|-13.025401|
+|Constant|||
+|
+|Log likelihood: 2650 AIC: BIC: ;Pseudi R2:
+|Number of respondents|
+|Number of observations|
+---
+
+```{}
+```
