@@ -5,7 +5,8 @@ library(dplyr)
 library(tidyr)
 
 apollo_initialise()
-dat <- read.csv("data_cleaned_final_jan24.csv")
+setwd("//storage.slu.se/Home$/nram0002/Desktop/Estimations")
+dat <- read.csv("//storage.slu.se/Home$/nram0002/Desktop/Estimations/data_cleaned_final_jan24.csv")
 
 #Long to short format
 database<-dat %>% 
@@ -43,16 +44,15 @@ database <- database %>%
     low_meat = ifelse(meat_1 == 1 | meat_1 == 2, 1, 0),
     
   )
+
+
 # Global Model Configuration
-pollo_control <- list(
+apollo_control <- list(
   modelName = "LatentClassModel",
   modelDescr = "Latent class logit model",
   indivID = "numeric_id_1", # Individual ID variable
   outputDirectory= "output"
-  outputDirectory= "output", 
-  cores= 11
 )
-
 
 # Define apollo_beta with unique parameter names
 apollo_beta <- c(
@@ -117,16 +117,8 @@ apollo_beta <- c(
   delta_c=0
 )
 
-#gamma_commute_a = 0,
-#gamma_car_av_a  = 0,
-#delta_b         = 0,
-#gamma_commute_b = 0,
-#gamma_car_av_b  = 0)
-
-#apollo_fixed = c("asc_2","delta_b","gamma_commute_b","gamma_car_av_b")
-
 # Fixed parameters 
-#apollo_fixed <- c()
+apollo_fixed <- c()
 
 #Latent class components
 apollo_lcPars=function(apollo_beta, apollo_inputs){
@@ -214,10 +206,7 @@ apollo_probabilities=function(apollo_beta, apollo_inputs, functionality="estimat
 # ################################################################# #
 
 ### Estimate model
-model = apollo_estimate(apollo_beta, apollo_fixed, apollo_probabilities, 
-                        apollo_inputs,
-                        #estimate_settings
-                        )
+model = apollo_estimate(apollo_beta, apollo_fixed, apollo_probabilities, apollo_inputs,estimate_settings = list(hessianRoutine="numDeriv"))
 
 ### Show output in screen
 apollo_modelOutput(model)
