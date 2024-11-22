@@ -1,10 +1,12 @@
 rm(list=ls())
 library(readxl)
+library(haven)
 library(apollo)
 library(dplyr)
 library(tidyr)
 
 apollo_initialise()
+
 dat <- read.csv("data_cleaned_final_jan24.csv")
 
 #Long to short format
@@ -50,7 +52,8 @@ apollo_control <- list(
   modelName = "LatentClassModel",
   modelDescr = "Latent class logit model",
   indivID = "numeric_id_1", # Individual ID variable
-  outputDirectory= "output"
+  outputDirectory= "output", 
+  nCores          = 22
 )
 
 # Define apollo_beta with unique parameter names
@@ -205,7 +208,7 @@ apollo_probabilities=function(apollo_beta, apollo_inputs, functionality="estimat
 # ################################################################# #
 
 ### Estimate model
-model = apollo_estimate(apollo_beta, apollo_fixed, apollo_probabilities, apollo_inputs,estimate_settings = list(hessianRoutine="numDeriv"))
+model = apollo_estimate(apollo_beta, apollo_fixed, apollo_probabilities, apollo_inputs,estimate_settings = list(estimationRoutine="nr", hessianRoutine="maxLik"))
 
 ### Show output in screen
 apollo_modelOutput(model)
